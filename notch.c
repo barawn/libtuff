@@ -120,9 +120,9 @@ notNotch = (~notch) & 0x7;
   
   libtuff_setChannelNotches(fd, irfcm, channel, notch);
   // wait for on ack
-  libtuff_waitForAck(fd, 0);
+  libtuff_waitForAck(fd, irfcm);
   // wait for off ack
-  libtuff_waitForAck(fd, 0);
+  libtuff_waitForAck(fd, irfcm);
   printf("got ack; notch set complete\n");
   /*
   write(fd,buf,strlen(buf));

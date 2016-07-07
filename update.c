@@ -118,7 +118,7 @@ notNotch = (~notch) & 0x7;
   
   libtuff_updateCaps(fd, irfcm, channel);
   // wait for cap ack
-  libtuff_waitForAck(fd, 0);
+  libtuff_waitForAck(fd, irfcm);
   printf("got ack; cap set complete\n");
   /*
   write(fd,buf,strlen(buf));
