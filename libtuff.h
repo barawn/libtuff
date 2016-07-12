@@ -115,4 +115,19 @@ int libtuff_setNotchRange(unsigned int fd,
 			    unsigned int phiStart,
 			    unsigned int phiEnd);
 
+/** \brief Set phi sectors for an iRFCM.
+ *
+ * Sets the 24 TUFF channels on an iRFCM to the assigned phi sectors.
+ *
+ * You can pass less than 24 channels, but it always starts with
+ * channel 0, and unpassed phi sectors are unchanged.
+ *
+ * Note that phi sector assignments/notch range commands haven't
+ * been extensively tested yet.
+ */
+int libtuff_setPhiSectors(unsigned int fd,
+			  unsigned int irfcm,
+			  unsigned int *phiList,
+			  unsigned int nb);
+
 #endif
