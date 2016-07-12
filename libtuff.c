@@ -182,6 +182,21 @@ int libtuff_setNotchRange(unsigned int fd,
   return write(fd, buf, strlen(buf));
 }
 
+int libtuff_setPhiSectors(unsigned int fd,
+			  unsigned int irfcm,
+			  unsigned int *phiList,
+			  unsigned int nb) {
+  char *p;
+  p = buf;
+  p = sprintf(buf, "{\"set\":{\"irfcm\":%d,\"phi\":[", irfcm);
+  for (i=0;i<nb;i++) {
+    if (i != 0) p = sprintf(p, ",");
+    p = sprintf(p, "%d", phiList[i]);
+  }
+  sprintf(p, "]}}\n\r");
+  return write(fd, buf, strlen(buf));
+}
+
 void libtuff_waitForAck(unsigned int fd,
 			unsigned int irfcm) {
   unsigned char nb;
