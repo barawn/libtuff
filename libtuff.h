@@ -5,6 +5,14 @@
 #include <string.h>
 #include <stdbool.h>
 
+/*
+ * TUFF library.
+ *
+ * NOTES: The 'fd' specified in all of these functions is a 
+ * serial port, opened at 115,200 baud, 8 bits, no parity, 1 stop bit,
+ * no flow control.
+ */
+
 /** \brief Issues a reset to a specific iRFCM.
  *
  * Note: resets don't actually affect the iRFCM (the TUFF master)
