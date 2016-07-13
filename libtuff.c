@@ -8,6 +8,12 @@
 
 static char buf[1024];
 
+int libtuff_reset(unsigned int fd,
+		  unsigned int irfcm) {
+  sprintf(buf, "{\"reset\":%d}\n\r", irfcm);
+  return write(fd, buf, strlen(buf));
+}
+
 int libtuff_onCommand(unsigned int fd,
 		      unsigned int irfcm,
 		      unsigned int channel,

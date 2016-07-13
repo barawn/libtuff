@@ -5,6 +5,14 @@
 #include <string.h>
 #include <stdbool.h>
 
+/** \brief Issues a reset to a specific iRFCM.
+ *
+ * Note: resets don't actually affect the iRFCM (the TUFF master)
+ * itself. They reset the microcontrollers on the TUFFs.
+ */
+int libtuff_reset(unsigned int fd,
+		  unsigned int irfcm);
+
 /** \brief Turns on notches on a specific iRFCM channel. 
  *
  * This function turns on the notches listed in notchMask.
