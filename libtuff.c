@@ -193,11 +193,18 @@ int libtuff_setPhiSectors(unsigned int fd,
 			  unsigned int *phiList,
 			  unsigned int nb) {
   char *p;
+  unsigned int i;
+  int cnt;
   p = buf;
-  p = sprintf(buf, "{\"set\":{\"irfcm\":%d,\"phi\":[", irfcm);
+  cnt = sprintf(buf, "{\"set\":{\"irfcm\":%d,\"phi\":[", irfcm);
+  p += cnt;
   for (i=0;i<nb;i++) {
-    if (i != 0) p = sprintf(p, ",");
-    p = sprintf(p, "%d", phiList[i]);
+    if (i != 0) {
+      cnt = sprintf(p, ",");
+      p += cnt;
+    }
+    cnt = sprintf(p, "%d", phiList[i]);
+    p += cnt;
   }
   sprintf(p, "]}}\n\r");
   return write(fd, buf, strlen(buf));
