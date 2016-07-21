@@ -1,3 +1,5 @@
+CFLAGS=-std=c99
+
 all: 	cap notch update
 
 cap:	cap.c libtuff.c

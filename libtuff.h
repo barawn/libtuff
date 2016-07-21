@@ -146,10 +146,4 @@ int libtuff_setPhiSectors(unsigned int fd,
 			  unsigned int *phiList,
 			  unsigned int nb);
 
-/** \brief Reset all TUFFs on an iRFCM.
- *
- */
-int libtuff_reset(unsigned int fd,
-		  unsigned int irfcm);
-
 #endif

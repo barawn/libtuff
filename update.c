@@ -31,6 +31,7 @@ main(int argc, char **argv)
 
   // need port, irfcm, channel
   if (argc < 3) {
+    printf("usage: update serial_port irfcm channel\n\r");
     exit(-1);
   }  
   /* 

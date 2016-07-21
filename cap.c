@@ -31,6 +31,7 @@ main(int argc, char **argv)
 
   // need port, irfcm, channel, notch, cap
   if (argc < 5) {
+    printf("usage: cap serial_port irfcm channel notch cap_value\n\r");
     exit(-1);
   }  
   /* 

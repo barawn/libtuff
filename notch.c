@@ -32,6 +32,7 @@ main(int argc, char **argv)
 
   // need port, irfcm, channel, notch
   if (argc < 4) {
+    printf("usage: notch serial_port irfcm channel bitmask_of_notches\n\r");
     exit(-1);
   }  
   /* 

@@ -238,8 +238,3 @@ void libtuff_waitForAck(unsigned int fd,
   }  
 }
 
-int libtuff_reset(unsigned int fd,
-		  unsigned int irfcm) {
-  sprintf(buf, "{\"reset\":%d}\n\r", irfcm);
-  return write(fd, buf, sizeof(buf));
-}
