@@ -225,6 +225,9 @@ void libtuff_waitForAck(unsigned int fd,
       if (p != NULL) {
 	p += 2+strlen("ack"); // move past '":'
 	check_irfcm = *p - '0';
+	// 42 is the only 2-character iRFCM.
+	// We're cheating and only checking the first character here.
+	if (irfcm == 42 && check_irfcm == 4) break;
 	if (check_irfcm == irfcm) break;
       }
       nb = 0;
@@ -233,4 +236,10 @@ void libtuff_waitForAck(unsigned int fd,
       nb++;
     }
   }  
+}
+
+int libtuff_reset(unsigned int fd,
+		  unsigned int irfcm) {
+  sprintf(buf, "{\"reset\":%d}\n\r", irfcm);
+  return write(fd, buf, sizeof(buf));
 }
